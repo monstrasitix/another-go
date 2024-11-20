@@ -1,0 +1,18 @@
+{
+  "name": "finance",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "ts": "tsc",
+    "sass": "sass ./src/scss:./public/css --no-source-map",
+    "watch": "npm run sass -- --watch & npm run ts -- --watch"
+  },
+  "devDependencies": {
+    "sass": "^1.81.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.3"
+  }
+}

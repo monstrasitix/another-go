@@ -1,0 +1,80 @@
+{{template "base" .}}
+<!--  -->
+
+{{define "content"}}
+<div class="d-flex vh-100">
+  <div class="sidebar" id="navbarSidebar">
+    <div class="container-fluid">
+      <ul class="nav flex-column mt-3">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link disabled"
+            href="#"
+            tabindex="-1"
+            aria-disabled="true"
+          >
+            Disabled
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="vh-100 w-100 d-flex flex-column">
+    {{template "navbar" .}}
+
+    <div class="vh-100 flex-1 scroll-y">
+      <div class="container my-3">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card">
+              <div class="card-body">Some cart here</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}
