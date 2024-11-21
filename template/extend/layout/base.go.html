@@ -1,17 +1,17 @@
 {{define "base"}}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{.Lang}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>{{.Base.Title}}</title>
+    <title>{{.Title}}</title>
 
     <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
   </head>
 
   <body>
-    {{block "content" .Base.Content}}{{end}}
+    {{block "content" .}}{{end}}
 
     <script src="/static/scripts/main.js"></script>
   </body>

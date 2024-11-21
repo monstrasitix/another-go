@@ -1,14 +1,20 @@
 package model
 
-type BasePage struct {
-	Title string
-	Content any
+type SidebarLink struct {
+	Path  string
+	Label string
 }
 
-type HomePage struct {
-	Base BasePage
+type Page struct {
+	Lang         string `json:"lang"`
+	Title        string `json:"title"`
+	Path         string `json:"path"`
+	SidebarLinks []SidebarLink
 }
 
-type AboutPage struct {
-	Base BasePage
+func GetSidebarLinks() []SidebarLink {
+	return []SidebarLink{
+		{"/", "sidebar.home"},
+		{"/about", "sidebar.about"},
+	}
 }

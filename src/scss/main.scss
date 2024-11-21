@@ -1,22 +1,5 @@
-@use "../../node_modules/bootstrap/dist/css/bootstrap.css";
+@use "./base";
 
-.sidebar {
+body {
   background-color: #ededed;
-  overflow: hidden;
-  white-space: nowrap;
-  box-shadow: inset -5px 0 5px #dedede;
-  max-width: 300px;
-  width: 100%;
-  transition: max-width 0.25s ease;
-}
-.sidebar.-closed {
-  max-width: 0;
-}
-
-.card-body {
-  min-height: 1200px;
-}
-
-.scroll-y {
-  overflow-y: scroll;
 }
