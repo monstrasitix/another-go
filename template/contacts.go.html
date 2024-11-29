@@ -1,0 +1,14 @@
+{{template "dashboard" .}}
+<!--  -->
+
+{{define "inner"}}
+<div class="container -page">
+  <div class="grid -columns-2 my-1">
+    {{range $idx := slices 4}}
+    <div class="card">
+      <div class="card-body">Contacts</div>
+    </div>
+    {{end}}
+  </div>
+</div>
+{{end}}

@@ -6,15 +6,16 @@
 
 <div class="flex -column" style="height: 100vh">
   {{template "navbar" .}}
+
   <div class="grail">
-    <div class="grail-sidebar -open" id="main-sidebar">
+    <div id="main-sidebar" class="grail-sidebar -open">
       {{template "sidebar" .}}
       <!--  -->
     </div>
 
     <div class="grail-main">
-      <!--  -->
       {{block "inner" .}}{{end}}
+      <!--  -->
     </div>
   </div>
 </div>

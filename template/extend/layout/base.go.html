@@ -8,16 +8,16 @@
     <title>{{.Title}}</title>
 
     <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     {{block "content" .}}{{end}}
 
     <script src="/static/scripts/toggle.js"></script>
-    <script
-      src="https://kit.fontawesome.com/05ce6c0c26.js"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
 {{end}}

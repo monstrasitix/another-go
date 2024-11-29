@@ -3,15 +3,8 @@ package model
 type SidebarLink struct {
 	Path   string
 	Label  string
+	Icon   string
 	Active bool
-}
-
-func NewLink(url, path, label string) SidebarLink {
-	return SidebarLink{
-		Path:   path,
-		Label:  label,
-		Active: path == url,
-	}
 }
 
 type Page struct {
@@ -22,8 +15,27 @@ type Page struct {
 }
 
 func GetSidebarLinks(path string) []SidebarLink {
-	return []SidebarLink{
-		NewLink(path, "/", "sidebar.dashboard"),
-		NewLink(path, "/about", "sidebar.about"),
+	links := []SidebarLink{
+		{
+			Path:  "/",
+			Label: "sidebar.dashboard",
+			Icon:  "bx bxs-dashboard",
+		},
+		{
+			Path:  "/contacts",
+			Label: "sidebar.contacts",
+			Icon:  "bx bxs-contact",
+		},
+		{
+			Path:  "/about",
+			Label: "sidebar.about",
+			Icon:  "bx bx-info-circle",
+		},
 	}
+
+	for i, link := range links {
+		links[i].Active = link.Path == path
+	}
+
+	return links
 }

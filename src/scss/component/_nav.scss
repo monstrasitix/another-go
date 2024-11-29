@@ -17,6 +17,7 @@
     display: block;
     border-radius: border.$radius;
     text-decoration: none;
+    white-space: nowrap;
 
     transition: background-color 0.2s ease-in-out;
 
@@ -27,5 +28,9 @@
     &:hover {
       background-color: color.$darken;
     }
+  }
+
+  &-icon {
+    margin-right: 1rem;
   }
 }

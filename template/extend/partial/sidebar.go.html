@@ -6,8 +6,9 @@
     <!--  -->
     {{range .SidebarLinks}}
     <li class="nav-item">
-      <a href="{{.Path}}" class="nav-link {{if .Active}} -active {{end}}">
-        {{t .Label}}
+      <a href="{{.Path}}" class="nav-link{{if .Active}} -active{{end}}">
+        <span class="nav-icon"><i class="{{.Icon}}"></i></span>
+        <span>{{t .Label}}</span>
       </a>
     </li>
     {{end}}

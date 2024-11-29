@@ -24,6 +24,14 @@ func Router(mux *chi.Mux) {
 		})
 	})
 
+	mux.Get("/contacts", func(w http.ResponseWriter, r *http.Request) {
+		TEMMPLATE["contacts"].ExecuteTemplate(w, "base", model.Page{
+			Title:        i18n.Text("title.contacts", "Contacts"),
+			Lang:         "en",
+			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
+		})
+	})
+
 	mux.Get("/about", func(w http.ResponseWriter, r *http.Request) {
 		TEMMPLATE["about"].ExecuteTemplate(w, "base", model.Page{
 			Title:        i18n.Text("title.about", "About us"),
