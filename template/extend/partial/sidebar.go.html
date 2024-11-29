@@ -1,0 +1,16 @@
+{{define "sidebar"}}
+<div class="sidebar">
+  <br />
+
+  <ul class="nav m-1">
+    <!--  -->
+    {{range .SidebarLinks}}
+    <li class="nav-item">
+      <a href="{{.Path}}" class="nav-link {{if .Active}} -active {{end}}">
+        {{t .Label}}
+      </a>
+    </li>
+    {{end}}
+  </ul>
+</div>
+{{end}}

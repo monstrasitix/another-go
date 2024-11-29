@@ -1,0 +1,54 @@
+@use "../abstract/color";
+
+.button {
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: inherit;
+
+  padding: 0.7em 1.3em;
+
+  border-radius: 5px;
+  border: 1px solid;
+  outline: none;
+
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: border-color, background-color;
+
+  &.-primary {
+    color: color.$on-dark;
+    background-color: color.$primary;
+
+    &:hover {
+      border-color: color.$primary-hover;
+      background-color: color.$primary-hover;
+    }
+
+    &:active {
+      border-color: color.$primary-active;
+      background-color: color.$primary-active;
+    }
+  }
+
+  &.-secondary {
+    color: color.$primary;
+    border-color: color.$none;
+    background-color: color.$none;
+
+    &:hover {
+      border-color: rgba(color.$primary-hover, 0.2);
+      background-color: rgba(color.$primary-hover, 0.2);
+    }
+
+    &:active {
+      border-color: rgba(color.$primary-active, 0.4);
+      background-color: rgba(color.$primary-active, 0.4);
+    }
+  }
+}

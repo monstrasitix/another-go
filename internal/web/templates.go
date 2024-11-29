@@ -19,8 +19,12 @@ func SetupTemplates() {
 		"t": func(key string) string {
 			return i18n.Text(key, key)
 		},
+		"slices": func(n int) []int {
+			return make([]int, n)
+		},
 	}).ParseGlob("./template/extend/*/*.go.html"))
 
 	TEMMPLATE["index"] = page(ext, "./template/index.go.html")
 	TEMMPLATE["about"] = page(ext, "./template/about.go.html")
+	TEMMPLATE["not-found"] = page(ext, "./template/not-found.go.html")
 }

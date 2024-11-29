@@ -2,5 +2,13 @@
 <!--  -->
 
 {{define "inner"}}
-<h2>About page</h2>
+<div class="container -page">
+  <div class="grid -columns-2 my-1">
+    {{range $idx := slices 4}}
+    <div class="card">
+      <div class="card-body">Card</div>
+    </div>
+    {{end}}
+  </div>
+</div>
 {{end}}

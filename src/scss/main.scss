@@ -1,5 +1,44 @@
+// Base
 @use "./base";
 
+// Elements
+@use "./element/button";
+
+// Components
+@use "./component/navbar";
+@use "./component/card";
+@use "./component/sidebar";
+@use "./component/nav";
+
+// Layour
+@use "./layout/grid";
+@use "./layout/flexbox";
+@use "./layout/container";
+@use "./layout/grail";
+
+html {
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  background-color: #ededed;
+  background-color: #dedede;
+
+  * {
+    &,
+    &::before,
+    &::after {
+      box-sizing: border-box;
+    }
+  }
+}
+
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.m-1 {
+  margin: 1rem;
 }

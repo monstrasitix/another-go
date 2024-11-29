@@ -3,7 +3,7 @@
     "target": "ES2023",
     "module": "CommonJS",
     "rootDir": "./src/scripts",
-    "outDir": "./public/scripts",
+    "outDir": "./static/scripts",
     "strict": true,
     "alwaysStrict": true,
     "esModuleInterop": true,

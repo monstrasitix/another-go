@@ -4,6 +4,9 @@ var (
 	texts = map[string]string{
 		"title.homepage": "Homepage",
 		"title.about":    "About us",
+
+		"sidebar.dashboard": "Dashboard",
+		"sidebar.about":     "About",
 	}
 )
 

@@ -1,0 +1,31 @@
+@use "../helpers/reset";
+@use "../abstract/color";
+@use "../abstract/border";
+
+.nav {
+  @extend %list;
+
+  &-item {
+    & + & {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &-link {
+    color: color.$white;
+    padding: 1em;
+    display: block;
+    border-radius: border.$radius;
+    text-decoration: none;
+
+    transition: background-color 0.2s ease-in-out;
+
+    &.-active {
+      background-color: color.$darken;
+    }
+
+    &:hover {
+      background-color: color.$darken;
+    }
+  }
+}

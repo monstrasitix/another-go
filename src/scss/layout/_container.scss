@@ -1,0 +1,9 @@
+.container {
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+
+  &.-page {
+    max-width: 1900px;
+  }
+}

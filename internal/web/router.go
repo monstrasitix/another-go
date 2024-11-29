@@ -13,14 +13,14 @@ func Router(mux *chi.Mux) {
 
 	mux.Handle("/static/*",
 		http.StripPrefix("/static/",
-			http.FileServer(http.Dir("./public"))))
+			http.FileServer(http.Dir("./static"))))
 
 	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		TEMMPLATE["index"].ExecuteTemplate(w, "base", model.Page{
 			Title:        i18n.Text("title.homepage", "Homepage"),
 			Lang:         "en",
-			Path:         r.URL.Path,
-			SidebarLinks: model.GetSidebarLinks(),
+			PagePath:     r.URL.Path,
+			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
 		})
 	})
 
@@ -28,8 +28,11 @@ func Router(mux *chi.Mux) {
 		TEMMPLATE["about"].ExecuteTemplate(w, "base", model.Page{
 			Title:        i18n.Text("title.about", "About us"),
 			Lang:         "en",
-			Path:         r.URL.Path,
-			SidebarLinks: model.GetSidebarLinks(),
+			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
 		})
+	})
+
+	mux.NotFound(func(w http.ResponseWriter, r *http.Request) {
+		TEMMPLATE["not-found"].ExecuteTemplate(w, "base", nil)
 	})
 }

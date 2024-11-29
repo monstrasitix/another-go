@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "ts": "tsc",
-    "sass": "sass ./src/scss:./public/css --no-source-map",
+    "sass": "sass ./src/scss:./static/css --no-source-map",
     "watch": "npm run sass -- --watch & npm run ts -- --watch"
   },
   "devDependencies": {

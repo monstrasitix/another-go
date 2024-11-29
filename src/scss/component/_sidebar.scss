@@ -1,0 +1,13 @@
+@use "../abstract/color";
+
+.sidebar {
+  height: 100%;
+  background-color: color.$primary;
+
+  &-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

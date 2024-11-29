@@ -1,0 +1,11 @@
+@mixin left-to-right {
+  @at-root .ltr & {
+    @content;
+  }
+}
+
+@mixin right-to-left {
+  @at-root .rtl & {
+    @content;
+  }
+}

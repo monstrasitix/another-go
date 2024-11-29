@@ -1,0 +1,55 @@
+@use "../helpers/rtl";
+@use "../abstract/media";
+
+.grail {
+  display: flex;
+  height: 100%;
+
+  @include rtl.right-to-left {
+    flex-direction: row-reverse;
+  }
+
+  @include rtl.left-to-right {
+    flex-direction: row;
+  }
+
+  &-sidebar {
+    min-width: 0;
+    flex-basis: 0;
+    overflow: hidden;
+
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+    transition-property: flex-basis width;
+
+    &.-open {
+      min-width: 300px;
+    }
+  }
+
+  &-main {
+    flex-grow: 1;
+  }
+
+  @media #{media.$medium-max} {
+    &-sidebar {
+      position: fixed;
+      top: 70px;
+      width: 0;
+      height: 100%;
+      flex-basis: initial;
+
+      @at-root .ltr & {
+        left: 0;
+      }
+
+      @at-root .rtl & {
+        right: 0;
+      }
+
+      &.-open {
+        width: 300px;
+      }
+    }
+  }
+}

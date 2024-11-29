@@ -1,0 +1,22 @@
+@use "../helpers/rtl";
+@use "../abstract/color";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include rtl.right-to-left {
+    flex-direction: row-reverse;
+  }
+
+  @include rtl.left-to-right {
+    flex-direction: row;
+  }
+
+  background-color: color.$white;
+
+  min-height: 70px;
+  height: 70px;
+  padding: 0 2em;
+}
