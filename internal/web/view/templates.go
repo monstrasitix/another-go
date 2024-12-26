@@ -1,9 +1,8 @@
-package web
+package view
 
 import (
 	"html/template"
-
-	"github.com/monstrasitix/finance/internal/i18n"
+	"net/http"
 )
 
 var (
@@ -15,17 +14,20 @@ func page(tmpl *template.Template, path string) *template.Template {
 }
 
 func SetupTemplates() {
-	ext := template.Must(template.New("base").Funcs(template.FuncMap{
-		"t": func(key string) string {
-			return i18n.Text(key, key)
-		},
+	ext := template.Must(template.New("base").ParseGlob("./template/extend/*/*.go.html"))
+
+	ext.Funcs(template.FuncMap{
 		"slices": func(n int) []int {
 			return make([]int, n)
 		},
-	}).ParseGlob("./template/extend/*/*.go.html"))
+	})
 
-	TEMMPLATE["index"] = page(ext, "./template/index.go.html")
+	TEMMPLATE["home"] = page(ext, "./template/home.go.html")
 	TEMMPLATE["about"] = page(ext, "./template/about.go.html")
 	TEMMPLATE["contacts"] = page(ext, "./template/contacts.go.html")
 	TEMMPLATE["not-found"] = page(ext, "./template/not-found.go.html")
+}
+
+func RenderTemplate(w http.ResponseWriter, name string, data any) {
+	TEMMPLATE[name].ExecuteTemplate(w, "base", data)
 }

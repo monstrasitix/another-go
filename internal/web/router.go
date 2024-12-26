@@ -4,43 +4,20 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/monstrasitix/finance/internal/i18n"
-	"github.com/monstrasitix/finance/internal/model"
+	"github.com/monstrasitix/finance/internal/web/controller"
+	"github.com/monstrasitix/finance/internal/web/view"
 )
 
 func Router(mux *chi.Mux) {
-	SetupTemplates()
+	view.SetupTemplates()
 
 	mux.Handle("/static/*",
 		http.StripPrefix("/static/",
 			http.FileServer(http.Dir("./static"))))
 
-	mux.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		TEMMPLATE["index"].ExecuteTemplate(w, "base", model.Page{
-			Title:        i18n.Text("title.homepage", "Homepage"),
-			Lang:         "en",
-			PagePath:     r.URL.Path,
-			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
-		})
-	})
+	mux.Handle("/", controller.HomeController{})
+	mux.Handle("/about", controller.AboutController{})
+	mux.Handle("/contacts", controller.ContactsController{})
 
-	mux.Get("/contacts", func(w http.ResponseWriter, r *http.Request) {
-		TEMMPLATE["contacts"].ExecuteTemplate(w, "base", model.Page{
-			Title:        i18n.Text("title.contacts", "Contacts"),
-			Lang:         "en",
-			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
-		})
-	})
-
-	mux.Get("/about", func(w http.ResponseWriter, r *http.Request) {
-		TEMMPLATE["about"].ExecuteTemplate(w, "base", model.Page{
-			Title:        i18n.Text("title.about", "About us"),
-			Lang:         "en",
-			SidebarLinks: model.GetSidebarLinks(r.URL.Path),
-		})
-	})
-
-	mux.NotFound(func(w http.ResponseWriter, r *http.Request) {
-		TEMMPLATE["not-found"].ExecuteTemplate(w, "base", nil)
-	})
+	mux.NotFound(controller.NotFoundController{}.ServeHTTP)
 }

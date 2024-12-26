@@ -13,7 +13,7 @@ import (
 )
 
 func init() {
-	godotenv.Load(".env")
+	godotenv.Load()
 }
 
 func main() {
@@ -21,6 +21,7 @@ func main() {
 	server := config.NewServer(mux)
 
 	mux.Use(middleware.DefaultLogger)
+
 	web.Router(mux)
 
 	fmt.Printf("Running on: http://localhost%s\n", server.Addr)

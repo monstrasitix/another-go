@@ -1,21 +1,29 @@
 package i18n
 
-var (
-	texts = map[string]string{
-		"title.homepage": "Homepage",
-		"title.contacts": "Cnontacts",
-		"title.about":    "About us",
+type Translation struct {
+	Lang string `json:"lang"`
 
-		"sidebar.dashboard": "Dashboard",
-		"sidebar.contacts":  "Contacts",
-		"sidebar.about":     "About",
+	// Titles
+	TitleHomepage string `json:"title.homepage"`
+	TitleContacts string `json:"title.contacts"`
+	TitleAbout    string `json:"title.about"`
+
+	// Sidebar
+	SidebarDashboard string `json:"sidebar.dashboard"`
+	SidebarContacts  string `json:"sidebar.contacts"`
+	SidebarAbout     string `json:"sidebar.about"`
+}
+
+var (
+	English = Translation{
+		Lang: "en",
+
+		TitleHomepage: "Homepage",
+		TitleContacts: "Cnontacts",
+		TitleAbout:    "About us",
+
+		SidebarDashboard: "Dashboard",
+		SidebarContacts:  "Contacts",
+		SidebarAbout:     "About",
 	}
 )
-
-func Text(key, fallback string) string {
-	if value, exists := texts[key]; exists {
-		return value
-	}
-
-	return fallback
-}

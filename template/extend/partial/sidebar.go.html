@@ -4,11 +4,11 @@
 
   <ul class="nav m-1">
     <!--  -->
-    {{range .SidebarLinks}}
+    {{range .Sidebar.Links}}
     <li class="nav-item">
-      <a href="{{.Path}}" class="nav-link{{if .Active}} -active{{end}}">
+      <a href="{{.Path}}" class="nav-link{{if .IsActive}} -active{{end}}">
         <span class="nav-icon"><i class="{{.Icon}}"></i></span>
-        <span>{{t .Label}}</span>
+        <span>{{.Label}}</span>
       </a>
     </li>
     {{end}}
