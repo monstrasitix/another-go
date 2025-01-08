@@ -6,11 +6,11 @@ import (
 )
 
 var (
-	TEMMPLATE = make(map[string]*template.Template)
+	TEMPLATE = make(map[string]*template.Template)
 )
 
-func page(tmpl *template.Template, path string) *template.Template {
-	return template.Must(template.Must(tmpl.Clone()).ParseFiles(path))
+func page(templ *template.Template, path string) *template.Template {
+	return template.Must(template.Must(templ.Clone()).ParseFiles(path))
 }
 
 func SetupTemplates() {
@@ -22,12 +22,12 @@ func SetupTemplates() {
 		},
 	})
 
-	TEMMPLATE["home"] = page(ext, "./template/home.go.html")
-	TEMMPLATE["about"] = page(ext, "./template/about.go.html")
-	TEMMPLATE["contacts"] = page(ext, "./template/contacts.go.html")
-	TEMMPLATE["not-found"] = page(ext, "./template/not-found.go.html")
+	TEMPLATE["home"] = page(ext, "./template/home.go.html")
+	TEMPLATE["about"] = page(ext, "./template/about.go.html")
+	TEMPLATE["contacts"] = page(ext, "./template/contacts.go.html")
+	TEMPLATE["not-found"] = page(ext, "./template/not-found.go.html")
 }
 
 func RenderTemplate(w http.ResponseWriter, name string, data any) {
-	TEMMPLATE[name].ExecuteTemplate(w, "base", data)
+	TEMPLATE[name].ExecuteTemplate(w, "base", data)
 }

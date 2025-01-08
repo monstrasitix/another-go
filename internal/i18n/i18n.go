@@ -19,7 +19,7 @@ var (
 		Lang: "en",
 
 		TitleHomepage: "Homepage",
-		TitleContacts: "Cnontacts",
+		TitleContacts: "Contacts",
 		TitleAbout:    "About us",
 
 		SidebarDashboard: "Dashboard",
