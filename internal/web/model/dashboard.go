@@ -2,13 +2,13 @@ package model
 
 import "github.com/monstrasitix/finance/internal/i18n"
 
-type HomeModel struct {
-	Page
-	Sidebar
+type DashboardModel struct {
+	Page    `json:"page"`
+	Sidebar `json:"sidebar"`
 }
 
-func NewHomeModel(path string) HomeModel {
-	return HomeModel{
+func NewDashboardModel(path string) DashboardModel {
+	return DashboardModel{
 		Page: Page{
 			Lang:  i18n.English.Lang,
 			Title: i18n.English.TitleHomepage,

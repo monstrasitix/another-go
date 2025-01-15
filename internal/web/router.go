@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/monstrasitix/finance/internal/web/controller"
+	"github.com/monstrasitix/finance/internal/web/dashboard"
 	"github.com/monstrasitix/finance/internal/web/view"
 )
 
@@ -15,9 +15,15 @@ func Router(mux *chi.Mux) {
 		http.StripPrefix("/static/",
 			http.FileServer(http.Dir("./static"))))
 
-	mux.Handle("/", controller.HomeController{})
-	mux.Handle("/about", controller.AboutController{})
-	mux.Handle("/contacts", controller.ContactsController{})
+	mux.Route("/", func(r chi.Router) {
+		r.Use(dashboard.DashboardMiddleware)
 
-	mux.NotFound(controller.NotFoundController{}.ServeHTTP)
+		r.HandleFunc("/", dashboard.GetIndex)
+		r.HandleFunc("/about", dashboard.GetAbout)
+		r.HandleFunc("/contacts", dashboard.GetContacts)
+	})
+
+	mux.NotFound(func(w http.ResponseWriter, r *http.Request) {
+		view.RenderTemplate(w, "not-found", nil)
+	})
 }

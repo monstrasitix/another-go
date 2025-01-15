@@ -3,9 +3,13 @@
 
 {{define "inner"}}
 <div class="container -page">
-  <div class="grid -columns-3 my-1">
-    {{range $idx := slices 3}}
+  <div class="grid -columns-2 my-1">
+    {{range $idx := slices 4}}
     <div class="card">
+      <div class="card-header">
+        <strong>Total cash flow</strong>
+      </div>
+
       <div class="card-body">Heading</div>
     </div>
     {{end}}
