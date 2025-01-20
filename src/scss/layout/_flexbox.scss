@@ -1,6 +1,10 @@
 .flex {
   display: flex;
 
+  &.-around {
+    justify-content: space-around;
+  }
+
   &.-row {
     flex-direction: row;
   }

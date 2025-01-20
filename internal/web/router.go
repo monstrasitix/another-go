@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/monstrasitix/finance/internal/web/builder"
 	"github.com/monstrasitix/finance/internal/web/dashboard"
 	"github.com/monstrasitix/finance/internal/web/view"
 )
@@ -19,8 +20,13 @@ func Router(mux *chi.Mux) {
 		r.Use(dashboard.DashboardMiddleware)
 
 		r.HandleFunc("/", dashboard.GetIndex)
+		r.HandleFunc("/pages", dashboard.GetPages)
+		r.HandleFunc("/translations", dashboard.GetTranslations)
 		r.HandleFunc("/about", dashboard.GetAbout)
-		r.HandleFunc("/contacts", dashboard.GetContacts)
+	})
+
+	mux.Route("/build", func(r chi.Router) {
+		r.HandleFunc("/", builder.GetIndex)
 	})
 
 	mux.NotFound(func(w http.ResponseWriter, r *http.Request) {

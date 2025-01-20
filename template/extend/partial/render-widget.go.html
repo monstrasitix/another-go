@@ -1,0 +1,4 @@
+{{define "render-widget"}}<!-- -->
+{{if eq .Type "featured"}} {{template "widget:featured" .}} {{end}}<!-- -->
+{{if eq .Type "header"}} {{template "widget:header" .}} {{end}}<!-- -->
+{{end}}

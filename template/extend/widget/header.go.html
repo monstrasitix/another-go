@@ -1,0 +1,20 @@
+{{define "widget:header"}}
+<div class="header">
+  <div class="container -page">
+    <div class="grid -columns-2">
+      <div>
+        <h1 class="header-title">{{.Content.title}}</h1>
+        <p class="header-slogan">{{.Content.slogan}}</p>
+
+        <button type="button" class="button -primary">
+          {{.Content.actionButton}}
+        </button>
+      </div>
+
+      <div>
+        <img />
+      </div>
+    </div>
+  </div>
+</div>
+{{end}}

@@ -26,13 +26,20 @@ func GetIndex(w http.ResponseWriter, r *http.Request) {
 func GetAbout(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 		view.RenderTemplate(w, "about",
-			getViewBag(r.Context(), i18n.English.TitleContacts))
+			getViewBag(r.Context(), i18n.English.TitleAbout))
 	}
 }
 
-func GetContacts(w http.ResponseWriter, r *http.Request) {
+func GetPages(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		view.RenderTemplate(w, "contacts",
-			getViewBag(r.Context(), i18n.English.TitleContacts))
+		view.RenderTemplate(w, "pages",
+			getViewBag(r.Context(), i18n.English.TitlePages))
+	}
+}
+
+func GetTranslations(w http.ResponseWriter, r *http.Request) {
+	if r.Method == http.MethodGet {
+		view.RenderTemplate(w, "translations",
+			getViewBag(r.Context(), i18n.English.TitleTranslations))
 	}
 }

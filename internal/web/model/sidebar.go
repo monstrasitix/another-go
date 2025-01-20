@@ -21,9 +21,14 @@ func GetLinks(path string, t i18n.Translation) []Link {
 			Icon:  "bx bxs-dashboard",
 		},
 		{
-			Path:  "/contacts",
-			Label: t.SidebarContacts,
-			Icon:  "bx bxs-contact",
+			Path:  "/pages",
+			Label: t.SidebarPages,
+			Icon:  "bx bx-align-left",
+		},
+		{
+			Path:  "/translations",
+			Label: t.SidebarTranslations,
+			Icon:  "bx bx-bracket",
 		},
 		{
 			Path:  "/about",

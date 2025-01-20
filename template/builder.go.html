@@ -1,0 +1,12 @@
+{{template "base"}}
+
+<!--  -->
+{{define "content"}}
+<!--  -->
+{{range $widget := .Widgets}}
+<!--  -->
+{{template "render-widget" .}}
+<!--  -->
+{{end}}
+<!--  -->
+{{end}}

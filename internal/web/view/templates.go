@@ -23,8 +23,10 @@ func SetupTemplates() {
 	})
 
 	TEMPLATE["home"] = page(ext, "./template/home.go.html")
+	TEMPLATE["builder"] = page(ext, "./template/builder.go.html")
 	TEMPLATE["about"] = page(ext, "./template/about.go.html")
-	TEMPLATE["contacts"] = page(ext, "./template/contacts.go.html")
+	TEMPLATE["pages"] = page(ext, "./template/pages.go.html")
+	TEMPLATE["translations"] = page(ext, "./template/translations.go.html")
 	TEMPLATE["not-found"] = page(ext, "./template/not-found.go.html")
 }
 
